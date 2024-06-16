@@ -4,7 +4,9 @@ import { Inject, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class ProductService {
-    constructor(@Inject() private productRepository: ProductRepository) {}
+    constructor(
+        @Inject(ProductRepository) private productRepository: ProductRepository,
+    ) {}
 
     async getAllProducts() {
         return await this.productRepository.findAll();
