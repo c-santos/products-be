@@ -8,12 +8,12 @@ async function bootstrap() {
     const port = configService.getValue('PORT') || 8000;
     const app = await NestFactory.create(AppModule);
 
-    app.setGlobalPrefix('my-nest-template');
+    app.setGlobalPrefix('products-be');
     app.useGlobalInterceptors(new TransformResponseInterceptor());
 
     const swaggerConfig = new DocumentBuilder()
-        .setTitle('my-nestjs-template')
-        .setDescription('My Nest Template API')
+        .setTitle('Products BE')
+        .setDescription('Products BE API')
         .setVersion('1.0')
         .build();
 
