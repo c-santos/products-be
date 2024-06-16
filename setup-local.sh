@@ -13,9 +13,9 @@ $DC run --rm products-be npm install
 $DC up -d
 
 # Run migration and seeders
-$DC exec my-template npm run typeorm:migration:generate --name=Init
-$DC exec my-template npm run typeorm:migration:run
-$DC exec my-template npm run typeorm:seed
+$DC exec products-be npm run typeorm:migration:generate --name=Init
+$DC exec products-be npm run typeorm:migration:run
+$DC exec products-be npm run typeorm:seed
 
 # show logs
 $DC logs -f
