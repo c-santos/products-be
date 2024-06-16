@@ -4,7 +4,7 @@ set -e
 set -x
 
 D="docker"
-DC="docker-compose"
+DC="docker compose"
 $DC down
 
 # Spin up conatiners
