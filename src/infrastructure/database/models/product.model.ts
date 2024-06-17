@@ -1,4 +1,4 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn, W } from 'typeorm';
 import { BaseModel } from './base.model';
 import { ProductEntity } from '@/domain/entities/product.entity';
 import { ProductStatus } from '@/domain/enums/product-status.enum';
@@ -11,15 +11,22 @@ export class Product extends BaseModel implements ProductEntity {
     @Column()
     name: string;
 
-    @Column()
+    @Column({ nullable: true })
     description: string;
 
     @Column()
     price: number;
 
     @Column()
-    quantity: number;
+    totalQuantity: number;
 
-    @Column({ type: 'enum', enum: ProductStatus })
+    @Column()
+    soldQuantity: number;
+
+    @Column({
+        type: 'enum',
+        enum: ProductStatus,
+        default: ProductStatus.AVAILABLE,
+    })
     status: ProductStatus;
 }
