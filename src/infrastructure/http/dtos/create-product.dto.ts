@@ -19,7 +19,7 @@ export class CreateProductDto implements Partial<ProductEntity> {
 
     @IsDefined()
     @IsNumber()
-    totalQuantity: number;
+    total_quantity: number;
 
     @IsOptional()
     @IsString()
