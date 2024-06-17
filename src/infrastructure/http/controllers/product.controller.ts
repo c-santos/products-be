@@ -1,6 +1,15 @@
 import { ProductService } from '@/application/services/product.service';
-import { Body, Controller, Get, Inject, Param, Post } from '@nestjs/common';
+import {
+    Body,
+    Controller,
+    Get,
+    Inject,
+    Param,
+    Patch,
+    Post,
+} from '@nestjs/common';
 import { CreateProductDto } from '../dtos/create-product.dto';
+import { UpdateProductStatusDto } from '../dtos/update-product-status.dto';
 
 @Controller('products')
 export class ProductController {
@@ -21,5 +30,16 @@ export class ProductController {
     @Post()
     async createProduct(@Body() createProductDto: CreateProductDto) {
         return await this.productService.createProduct(createProductDto);
+    }
+
+    @Patch(':id')
+    async updateProductStatus(
+        @Param('id') id: string,
+        @Body() updateProductStatusDto: UpdateProductStatusDto,
+    ) {
+        return await this.productService.updateStatus(
+            id,
+            updateProductStatusDto,
+        );
     }
 }

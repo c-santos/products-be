@@ -1,5 +1,6 @@
 import { ProductRepository } from '@/infrastructure/database/repositories/product.repository';
 import { CreateProductDto } from '@/infrastructure/http/dtos/create-product.dto';
+import { UpdateProductStatusDto } from '@/infrastructure/http/dtos/update-product-status.dto';
 import { Inject, Injectable } from '@nestjs/common';
 
 @Injectable()
@@ -24,5 +25,12 @@ export class ProductService {
 
     async tagAsPaid(id: string) {
         throw new Error('Method not implemented.');
+    }
+
+    async updateStatus(
+        id: string,
+        updateProductStatus: UpdateProductStatusDto,
+    ) {
+        return await this.productRepository.update(updateProductStatus, { id });
     }
 }
