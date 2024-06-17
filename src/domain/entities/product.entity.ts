@@ -5,8 +5,8 @@ export class ProductEntity {
     name: string;
     description: string;
     price: number;
-    totalQuantity: number;
-    soldQuantity: number;
+    total_quantity: number;
+    sold_quantity: number;
     status: ProductStatus;
 
     constructor(data: Partial<ProductEntity>) {

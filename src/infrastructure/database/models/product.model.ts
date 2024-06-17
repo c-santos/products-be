@@ -18,10 +18,10 @@ export class Product extends BaseModel implements ProductEntity {
     price: number;
 
     @Column()
-    totalQuantity: number;
+    total_quantity: number;
 
     @Column()
-    soldQuantity: number;
+    sold_quantity: number;
 
     @Column({
         type: 'enum',
