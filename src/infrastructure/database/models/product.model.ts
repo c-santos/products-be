@@ -20,7 +20,7 @@ export class Product extends BaseModel implements ProductEntity {
     @Column()
     total_quantity: number;
 
-    @Column()
+    @Column({ default: 0 })
     sold_quantity: number;
 
     @Column({
