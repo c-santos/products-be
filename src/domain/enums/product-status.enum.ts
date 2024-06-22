@@ -1,5 +1,5 @@
 export enum ProductStatus {
-    AVAILABLE,
-    RESERVED,
-    SOLD,
+    AVAILABLE = 'Available',
+    RESERVED = 'Reserved',
+    SOLD = 'Sold',
 }
