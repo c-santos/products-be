@@ -1,5 +1,6 @@
 import { ProductEntity } from '@/domain/entities/product.entity';
 import { ProductStatus } from '@/domain/enums/product-status.enum';
+import { Transform } from 'class-transformer';
 import {
     IsDefined,
     IsEnum,
@@ -27,5 +28,8 @@ export class CreateProductDto implements Partial<ProductEntity> {
 
     @IsOptional()
     @IsEnum(ProductStatus)
+    @Transform(({ value }) => {
+        return ProductStatus[value]
+    })
     status?: ProductStatus;
 }
